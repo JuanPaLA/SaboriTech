@@ -11,7 +11,7 @@ export default function Nav() {
       <Link to={'/'}>
         <h2>Home</h2>
       </Link>
-      <Link to={'/cart'}>
+      <Link to={'/order'}>
         Órdenes{' '}
         <span>
           {dishesCount()}

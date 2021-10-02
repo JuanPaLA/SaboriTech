@@ -9,58 +9,48 @@ const CartContextProvider = props => {
     
     const [order, setOrder] = useState([]);
     
-    const addDish = (dish, count, price) => {
-        const alreadyExists = (element) => element = dish;    
-        let index = order.findIndex(alreadyExists);
-        if(index === -1){
-            setOrder([...order, {
-                dish: dish, 
-                quantity:count, 
-                subTotal: price
-            }])
-        }if(index !== -1){
-            var orders = order;
-            orders[index] = {
-                dish: orders[index].dish, 
-                quantity: orders[index].quantity + count, 
-                subTotal: orders[index].subTotal + price
-            }
-            setOrder(orders)
+    function addDish  (dish, count, price) {
+      const index = order.findIndex((item) => item.dish == dish)
+        index === -1 ? setOrder([...order, {dish: dish, quantity:count, subTotal: price}]) : console.log('--');
+        
+        if(index !== -1){
+          let newOrder = [...order];
+          newOrder[index].quantity += count;
+          newOrder[index].subTotal += price;
+          setOrder(newOrder)
         }
     }
 
-    // // Suma los productos (acc = acumulador) Recorre productos y suma quantity (cantidad)
+    // Returns amount of differents added dishes to order
     function dishesCount(){
         return order.length;
     };
 
-    useEffect(()=>{
-        console.log(order);
-    },[order])
-  
-    
-  
-    // // Elimina producto del array. Busca el indice y elimina 1
-    // const delProduct = id => {
-    //   products.splice(products.findIndex(p => p.id === id), 1);
-    //   setProducts([...products]);
-    // };
+    // Delete dish from order
+    const delDish = dish => {
+      order.splice(order.findIndex(p => p.dish === dish), 1);
+      setOrder([...order]);
+    };
   
     // // Importe total
-    // const getGrandTotal = () => {
-    //   return products.reduce((acc, p) => (acc += p.price * p.quantity), 0);
-    // };
+    const getTotalOrder = () => {
+      return order.reduce((acc, p) => (acc += p.subTotal), 0);
+    };
   
-    // useEffect(() => {
-    //   setLong(products.length);
-    // }, [products]);
-  
+    useEffect(()=>{
+      console.log(order);
+    },[order])
+
     return (
       <CartContext.Provider
         value={
-          {order,
-          addDish,
-          dishesCount}
+          {
+            order,
+            addDish,
+            dishesCount,
+            delDish,
+            getTotalOrder
+          }
         }
       >
         {props.children}

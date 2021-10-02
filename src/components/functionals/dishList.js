@@ -20,6 +20,7 @@ export default function DishList() {
             {dishes ? 
                 dishes.map((d,i)=>(
                     <Dish
+                        key={i}
                         id={d.id} 
                         precio={d.precio}
                         disponible={d.disponible}
