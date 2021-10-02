@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.page-content {
+  padding: 30px;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.error-text {
+  color: #ff0000;
+}
