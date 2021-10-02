@@ -12,7 +12,7 @@ export default function Navigation() {
 			<Nav>
 				<Nav.Link href="/">Home</Nav.Link>
 				<Nav.Link href="/login">Login</Nav.Link>
-				<Nav.Link href="/cart">Órdenes ({dishesCount()})</Nav.Link>
+				<Nav.Link href="/order">Órdenes ({dishesCount()})</Nav.Link>
 			</Nav>
 		</Navbar>
 	);
