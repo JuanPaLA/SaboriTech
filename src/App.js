@@ -7,6 +7,7 @@ import Signup from './components/functionals/signup';
 import Order from './components/functionals/order';
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import CartContextProvider from './components/context';
+import DishForm from './components/functionals/dishform';
 
 //Bootstrap styles
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -23,6 +24,7 @@ function App() {
 					<Route exact path="/order" component={Order}/>
 					<Route exact path="/login" component={Login} />
 					<Route exact path="/signup" component={Signup} />
+					<Route exact path="/createdish" component={DishForm} />
 				</div>
 			</Switch>
 			</BrowserRouter>

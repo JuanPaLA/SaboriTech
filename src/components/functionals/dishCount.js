@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
+import { Button } from 'react-bootstrap';
 
 
 export default function DishCount({handleCounterToChild}) {
@@ -17,16 +18,22 @@ export default function DishCount({handleCounterToChild}) {
 
     return (
         <div>
-            <input 
-                type="button" 
-                value="+" 
-                onClick={() => setCount(count + 1)} 
-            />
-                {count}
-            <input 
-                type="button" 
-                value="-" 
-                onClick={() => setCount(count - 1)} />
+            <span>Cantidad: </span>
+            <Button variant="primary" 
+              size="sm" 
+              onClick={() => setCount(count - 1)} 
+              className="dish-count-button"
+            >
+              -
+            </Button>
+            <span>{count}</span>
+            <Button variant="primary" 
+              size="sm" 
+              onClick={() => setCount(count + 1)} 
+              className="dish-count-button"
+            >
+              +
+            </Button>
         </div>
     )
 }

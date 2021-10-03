@@ -30,27 +30,27 @@ export default function Login() {
                     <h3>Sign up</h3>
                     <form onSubmit={submit}>
                         <div className="form-item">
-                            <label>Username</label>
+                            <label>Nombre de usuario</label>
                             <input 
                                 type="text" 
                                 onChange={e => setUsername(e.target.value)} 
                             />
                         </div>
                         <div className="form-item">
-                            <label>Password</label>
+                            <label>Contraseña</label>
                             <input 
                                 type="password" 
                                 onChange={e => setPassword(e.target.value)}
                             />
-                            <small>Must contain at least {PASSWORD_MIN_LENGTH} characters</small>
+                            <small>Debe contener al menos {PASSWORD_MIN_LENGTH} caracteres</small>
                         </div>
                         <div className="form-item">
-                            <label>Repeat Password</label>
+                            <label>Repetir contraseña</label>
                             <input 
                                 type="password" 
                                 onChange={e => setRepeatPassword(e.target.value)}
                             />
-                            {!passwordsMatch && <small className="error-text">Passwords don't match</small>}
+                            {!passwordsMatch && <small className="error-text">Las contraseñas no coinciden</small>}
                         </div>
                         
                         <Button 
@@ -58,7 +58,7 @@ export default function Login() {
                             variant="primary" 
                             disabled={username.length === 0 || !validPassword || !passwordsMatch}
                         >
-                            Submit
+                            Crear
                         </Button>
                     </form>
                 </Col>

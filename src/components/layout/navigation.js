@@ -11,9 +11,9 @@ export default function Navigation() {
 		<Navbar bg="light" variant="light">
 			<Navbar.Brand href="/">SABORITECH</Navbar.Brand>
 			<Nav>
-				<Link to="/" className="nav-link">Home</Link>
-				<Link to="/login" className="nav-link">Login</Link>
+				<Link to="/" className="nav-link">Platillos</Link>
 				<Link to="/order" className="nav-link">Órdenes ({dishesCount()})</Link>
+				<Link to="/login" className="nav-link">Login</Link>
 			</Nav>
 		</Navbar>
 	);
