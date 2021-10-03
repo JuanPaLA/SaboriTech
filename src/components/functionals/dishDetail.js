@@ -2,6 +2,7 @@ import React, {useState, useContext } from 'react'
 import Dish from './dish';
 import DishCount from './dishCount';
 import { CartContext } from '../context';
+import { Button } from 'react-bootstrap';
 
 export default function DishDetail({id,precio,nombre,descripcion,disponible,vegetariano}) {
     const [dishCount, setDishCount] = useState(0);
@@ -24,12 +25,11 @@ export default function DishDetail({id,precio,nombre,descripcion,disponible,vege
 
         <DishCount handleCounterToChild={handleCounterToChild}/>
 
-
-        <input
-            type="button"
-            value={`Añadir al carrito ${dishCount}`}
-            onClick={()=>addDish(nombre,dishCount, precio)}
-        />
+        <Button variant="primary"
+            onClick={()=>addDish(nombre, dishCount, precio)}
+        >
+            Añadir al carrito ${dishCount*precio}
+        </Button>
         
         </div>
     )

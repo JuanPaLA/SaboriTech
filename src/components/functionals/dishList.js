@@ -16,7 +16,7 @@ export default function DishList() {
     }, [])
 
     return (
-        <div>
+        <div className="dishes-list">
             {dishes ? 
                 dishes.map((d,i)=>(
                     <Dish
