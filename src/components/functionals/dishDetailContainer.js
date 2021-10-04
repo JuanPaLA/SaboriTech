@@ -7,7 +7,7 @@ export default function DishDetailContainer(props) {
     const {id} = useParams();
 
     useEffect((async) => {
-        fetch(`https://5f3c95f36c11f80016d6f21e.mockapi.io/saboritech/items/${id}`)
+        fetch(`/api/platillo/${id}`)
         .then(response => {
             return response.json();
         })

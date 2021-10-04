@@ -23,12 +23,16 @@ export default function DishDetail({id,precio,nombre,descripcion,disponible,vege
             nombre={nombre}
         />
 
+        <br />
+
+        <h5>Agregar a la orden:</h5>
+
         <DishCount handleCounterToChild={handleCounterToChild}/>
 
         <Button variant="primary"
             onClick={()=>addDish(nombre, dishCount, precio)}
         >
-            Añadir al carrito ${dishCount*precio}
+            Añadir ${dishCount * precio}
         </Button>
         
         </div>

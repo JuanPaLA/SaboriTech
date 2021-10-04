@@ -61,12 +61,15 @@
 }
 
 .dish-card {
-  padding: 10px;
   margin-right: 15px;
-  margin-bottom: 15px;
-  width: 300px;
+  margin-top: 15px;
+  width: 400px;
 }
 
 .dish-count-button {
   margin: 10px;
+}
+
+.order-item {
+  margin-bottom: 15px;
 }

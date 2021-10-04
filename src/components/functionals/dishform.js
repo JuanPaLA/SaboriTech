@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
 import { Button, Container, Row, Col } from 'react-bootstrap';
 
 export default function DishForm() {
@@ -7,20 +8,35 @@ export default function DishForm() {
     const [vegetarian, setVegetarian] = useState(false);
     const [price, setPrice] = useState(0);
     const [available, setAvailable] = useState(true);
-
+    
+    let history = useHistory();
 
     const submit = event => {
         event.preventDefault();
         const new_dish = {
-            name,
-            description,
-            vegetarian,
-            price,
-            available
+            nombre: name,
+            descripcion: description,
+            vegetariano: vegetarian,
+            precio: price,
+            disaponible: available
         }
-        
-        // connect to /create api
-        console.log(new_dish)
+        fetch(`/api/platillo`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(new_dish)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.id) {
+                // dish created successfully (go back to home)
+                history.push("/");
+            } 
+        })
+        .catch(e => {
+            //error ocurred
+        })
     }
 
     return (
