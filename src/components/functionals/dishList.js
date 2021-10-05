@@ -6,7 +6,7 @@ export default function DishList() {
     const [dishes, setDishes] = useState(false);
 
     useEffect((async) => {
-        fetch('https://5f3c95f36c11f80016d6f21e.mockapi.io/saboritech/items')
+        fetch(`/api/platillo`)
         .then(response => {
             return response.json();
         })

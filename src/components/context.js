@@ -9,8 +9,8 @@ const CartContextProvider = props => {
     
     const [order, setOrder] = useState([]);
     
-    function addDish  (dish, count, price) {
-      const index = order.findIndex((item) => item.dish == dish)
+    function addDish (dish, count, price) {
+      const index = order.findIndex((item) => item.dish === dish)
         index === -1 ? setOrder([...order, {dish: dish, quantity:count, subTotal: price}]) : console.log('--');
         
         if(index !== -1){
