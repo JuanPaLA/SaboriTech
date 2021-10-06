@@ -18,7 +18,7 @@ export default function DishForm() {
             descripcion: description,
             vegetariano: vegetarian,
             precio: price,
-            disaponible: available
+            disponible: available
         }
         fetch(`/api/platillo`, {
             method: 'POST',
