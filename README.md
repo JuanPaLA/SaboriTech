@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+<h1>About</h1>
+<p>Saboritech es una pequeña muestra de código de un cliente conectado a un servidor a través de sus endpoints. </p>
+<p>Su objetivo es ser un insumo de referencia para las estudiantes de Junior Achievement que atraviesan el programa de Winning Women en compañía con IBM</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1>Instalación y ejecución</h1>
+<ol>
+<li>git clone https://github.com/JuanPaLA/SaboriTech.git </li>
+<li>cd saboritech (nos posicionamos en el root del proyecto) </li>
+<li>npm install (instalamos las librerías necesarias) </li>
+<li>npm start (corremos el proyecto) </li>
+</ol>
 
-## Available Scripts
+<h1>Cuestiones a tener en cuenta</h1>
+<p>Si se desea probar el cliente con otro servidor, modificar la propiedad "proxy" del archivo package.json. El mismo se encuentra apuntando al localhost:8080, por lo que todos los fetchs apuntan con base en ese host.</p>
+<p>De la misma manera, la query de cada fecth se presentan aquí en base a los endpoints del servidor hecho en springboot que se tomó como referencia para este curso y que pueden encontrar aquí: https://github.com/razeone/restaurante-api</p>
 
-In the project directory, you can run:
+<h1>Temas cuebiertos</h1>
+* React JS, como librería de front-end
+* Instalación de Node y NPM
+* Instalación de create-react-app y uso desde cli
+* Estructura de un proyecto React
+* Método renderDom
+* Anidado de componentes 
+* Cómo organizar carpetas de React 
+* Instalación de librerías con NPM
+* Tipos de componentes (clases, funciones, elementos)
+* Paso de datos entre elementos
+* props
+* Hooks: controles de estado => useState
+* Hooks: controles de efecto => useEffect
+* Hooks: control de context => useContext
+* Control de formulario a través de eventos de inputs
+* Persistencia: Context
+* Routing
+* "Mapeo" de elementos: array.map()
+* Renderizado condicional
 
-### `npm start`
+<h1>Referencias</h1>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Documentación oficial: https://es.reactjs.org/docs/getting-started.html
+Documentación de respaldo: https://docs.google.com/document/d/1nBc0yK87zkPvzF8KG8K4hCLfzJMpfrSoW6dAJVN5wbg/edit?usp=sharing
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
