@@ -11,6 +11,7 @@
 </ol>
 
 <h1>Cuestiones a tener en cuenta</h1>
+<p><strong>¡Correr sobre branch MAIN!</strong></p>
 <p>Si se desea probar el cliente con otro servidor, modificar la propiedad "proxy" del archivo package.json. El mismo se encuentra apuntando al localhost:8080, por lo que todos los fetchs apuntan con base en ese host.</p>
 <p>De la misma manera, la query de cada fecth se presentan aquí en base a los endpoints del servidor hecho en springboot que se tomó como referencia para este curso y que pueden encontrar aquí: https://github.com/razeone/restaurante-api</p>
 
