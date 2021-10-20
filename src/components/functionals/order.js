@@ -1,6 +1,7 @@
 import React,{useContext} from 'react'
 import { CartContext } from '../context';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export default function Order() {
     const { dishesCount, order, delDish, getTotalOrder } = useContext(CartContext);
@@ -25,7 +26,7 @@ export default function Order() {
                 </div>
             ))
             :
-                'Agrega platos a tu orden'
+               <Link to="/">Agrega platos a tu orden</Link> 
             }
 
             {dishesCount() > 0 ? 

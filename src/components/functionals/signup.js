@@ -1,18 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Container, Row, Col } from 'react-bootstrap';
-
+import authService from '../../services/authentication/auth.service'
+import { CartContext } from "../context";
+import { useHistory } from "react-router-dom";
 const PASSWORD_MIN_LENGTH = 8;
 
 export default function Login() {
+    const authContext = React.useContext(CartContext);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
     const [passwordsMatch, setPasswordsMatch] = useState(true)
     const [validPassword, setValidPassword] = useState(false)
-
+    
+    let history = useHistory();
+    
     const submit = event => {
         event.preventDefault();
         // connect to /signup api
+        authService.register(username, ['user'], password)
+        .then((response) => {
+          if (response.id) {
+            authContext.login();
+          }
+        })
+        .then(()=>{
+            history.push("/login");
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     }
 
     useEffect(() => {

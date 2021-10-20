@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import { Button, Container, Row, Col } from 'react-bootstrap';
+import authHeader from '../../services/authentication/auth-header';
 
 export default function DishForm() {
     const [name, setName] = useState("");
@@ -11,6 +12,16 @@ export default function DishForm() {
     
     let history = useHistory();
 
+    let options = {
+        method: 'POST',
+        headers: {
+            'Authorization' : '',
+            'Access-Control-Allow-Origin' : '*',
+            'Content-Type': 'application/json',
+        },
+        body: ''
+    }
+
     const submit = event => {
         event.preventDefault();
         const new_dish = {
@@ -20,13 +31,11 @@ export default function DishForm() {
             precio: price,
             disponible: available
         }
-        fetch(`/api/platillo`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(new_dish)
-        })
+        options.headers.Authorization = authHeader().Authorization
+        options.body = JSON.stringify(new_dish);
+        console.log(options);
+
+        fetch(`/api/platillo`, options)
         .then(response => response.json())
         .then(data => {
             if (data && data.id) {
@@ -35,9 +44,13 @@ export default function DishForm() {
             } 
         })
         .catch(e => {
-            //error ocurred
+            console.log('NOT SHOULD VE VISIBLE');
         })
     }
+
+    useEffect(()=>{
+        console.log('qué pasa aquí');
+    },[])
 
     return (
         <Container>
