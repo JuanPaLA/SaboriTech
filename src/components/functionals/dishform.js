@@ -33,7 +33,6 @@ export default function DishForm() {
         }
         options.headers.Authorization = authHeader().Authorization
         options.body = JSON.stringify(new_dish);
-        console.log(options);
 
         fetch(`/api/platillo`, options)
         .then(response => response.json())

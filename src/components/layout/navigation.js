@@ -12,7 +12,7 @@ export default function Navigation() {
 
 	const logout = () => {
 		authService.signOut();
-		signout();
+		signout()
 	}
 
 	if(isAuth){
