@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import React from 'react'
 import Dish from './dish';
+import authHeader from '../../services/authentication/auth-header';
 
 export default function DishList() {
     const [dishes, setDishes] = useState(false);
@@ -17,7 +18,7 @@ export default function DishList() {
 
     return (
         <div className="dishes-list">
-            {dishes ? 
+            {dishes.length >= 0 ? 
                 dishes.map((d,i)=>(
                     <Dish
                         key={i}

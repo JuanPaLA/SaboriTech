@@ -1,12 +1,56 @@
 import React,{useContext} from 'react'
 import { CartContext } from '../context';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
+import authHeader from '../../services/authentication/auth-header';
+import { useHistory } from "react-router-dom";
 
 export default function Order() {
-    const { dishesCount, order, delDish, getTotalOrder } = useContext(CartContext);
+    
+    let history = useHistory();
 
-    const confirmOrder = () => {
-        console.log('confirm')
+    const { dishesCount, order, setOrder, delDish, getTotalOrder, user } = useContext(CartContext);
+
+    const confirmOrder = (event) => {
+        event.preventDefault();
+
+        const new_order = {
+            id: uuidv4(),
+            nombreCliente: user.username,
+            notasDeOrden: 'sin desarrollar',
+            platillos: order,
+            fechaHoraCreacion: new Date(),
+            estado: 'sin especificar',
+            totalOrden: getTotalOrder(),
+            totalMasImpuesto: getTotalOrder() + getTotalOrder() * 0.21, 
+        }
+
+        let options = {
+            method: 'POST',
+            headers: {
+                'Authorization' : authHeader().Authorization,
+                'Access-Control-Allow-Origin' : '*',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(new_order)
+        }
+
+        console.log(options);
+
+        fetch(`/api/orden`, options)
+        .then(response => response.json())
+        .then(data => {
+            if (data.id) {
+                // dish created successfully (go back to home)
+                alert('Orden de pedido registrada')
+                setOrder([])
+                history.push("/");
+            } 
+        })
+        .catch(e => {
+            console.log('ERROR');
+        })
     }
 
     return (
@@ -25,14 +69,14 @@ export default function Order() {
                 </div>
             ))
             :
-                'Agrega platos a tu orden'
+               <Link to="/">Agrega platos a tu orden</Link> 
             }
 
             {dishesCount() > 0 ? 
                 <div>
-                    <h5>Total: ${getTotalOrder()}</h5>
+                    <h5>Total: ${Math.round(getTotalOrder())}</h5>
                     <Button variant="primary"
-                        onClick={()=> confirmOrder()}
+                        onClick={(e)=> confirmOrder(e)}
                     >
                         Confirmar compra
                     </Button>
