@@ -4,9 +4,13 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import authHeader from '../../services/authentication/auth-header';
+import { useHistory } from "react-router-dom";
 
 export default function Order() {
-    const { dishesCount, order, delDish, getTotalOrder, user } = useContext(CartContext);
+    
+    let history = useHistory();
+
+    const { dishesCount, order, setOrder, delDish, getTotalOrder, user } = useContext(CartContext);
 
     const confirmOrder = (event) => {
         event.preventDefault();
@@ -37,10 +41,11 @@ export default function Order() {
         fetch(`/api/orden`, options)
         .then(response => response.json())
         .then(data => {
-            if (data) {
+            if (data.id) {
                 // dish created successfully (go back to home)
-                // history.push("/");
-                console.log(data);
+                alert('Orden de pedido registrada')
+                setOrder([])
+                history.push("/");
             } 
         })
         .catch(e => {

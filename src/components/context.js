@@ -78,6 +78,7 @@ const CartContextProvider = props => {
             dishesCount,
             delDish,
             getTotalOrder,
+            setOrder,
             //Login Variables
             login: loginHandler,
             signout: signoutHandler,
